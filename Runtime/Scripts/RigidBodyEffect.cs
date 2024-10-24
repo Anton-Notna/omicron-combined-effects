@@ -40,13 +40,11 @@ namespace OmicronCombinedEffects
 
             public void Disable()
             {
-                _body.isKinematic = true;
                 _body.gameObject.SetActive(false);
             }
 
             public void Enable()
             {
-                _body.isKinematic = false;
                 _body.gameObject.SetActive(true);
             }
 
@@ -117,7 +115,7 @@ namespace OmicronCombinedEffects
             else
             {
                 foreach (var item in _data)
-                    item.EvaluateScale(t);
+                    item.EvaluateScale(_scaleOnLifeTime.Evaluate(t));
             }
         }
     }

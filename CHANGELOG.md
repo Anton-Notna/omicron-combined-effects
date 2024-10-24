@@ -2,6 +2,9 @@
 
 ## Changelog
 
+### 1.0.2 (October 22, 2024)
++ fixes, MORE combine effect play methods
+
 ### 1.0.1 (October 22, 2024)
 + fixes, more combine effect play methods
 

@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
+using static Codice.Client.Commands.WkTree.WorkspaceTreeNode;
 
 namespace OmicronCombinedEffects
 {
@@ -19,6 +21,8 @@ namespace OmicronCombinedEffects
         public void Play(Vector3 position) =>
             Play(position, Quaternion.identity, position, _defaultForcePower, _defaultCameraShake);
 
+        public void Play(Transform origin) => Play(origin.position, origin.rotation);
+
         public void Play(Ray ray) => Play(ray.origin, ray.direction);
 
         public void Play(Vector3 position, Vector3 direction) =>
@@ -26,6 +30,9 @@ namespace OmicronCombinedEffects
 
         public void Play(Vector3 position, Quaternion rotation) =>
             Play(position, rotation, position, _defaultForcePower, _defaultCameraShake);
+
+        public void Play(Transform origin, Vector3 forceOrigin) =>
+            Play(origin.position, origin.rotation, forceOrigin, _defaultForcePower, _defaultCameraShake);
 
         public void Play(Ray ray, Vector3 forceOrigin) =>
             Play(ray.origin, EffectsExtensions.ToRotation(ray.direction), forceOrigin, _defaultForcePower, _defaultCameraShake);
@@ -36,6 +43,9 @@ namespace OmicronCombinedEffects
         public void Play(Vector3 position, Quaternion rotation, Vector3 forceOrigin) =>
             Play(position, rotation, forceOrigin, _defaultForcePower, _defaultCameraShake);
 
+        public void Play(Transform origin, Vector3 forceOrigin, float forcePower) =>
+            Play(origin.position, origin.rotation, forceOrigin, forcePower, _defaultCameraShake);
+
         public void Play(Vector3 position, Quaternion rotation, Vector3 forceOrigin, float forcePower) =>
             Play(position, rotation, forceOrigin, forcePower, _defaultCameraShake);
 
@@ -44,6 +54,12 @@ namespace OmicronCombinedEffects
 
         public void Play(Vector3 position, Vector3 direction, Vector3 forceOrigin, float forcePower) =>
             Play(position, EffectsExtensions.ToRotation(direction), forceOrigin, forcePower, _defaultCameraShake);
+
+        public void Play(Transform origin, Vector3 forceOrigin, float forcePower, float cameraShake) =>
+            Play(origin.position, origin.rotation, forceOrigin, forcePower, cameraShake);
+
+        public void Play(Ray ray, Vector3 forceOrigin, float forcePower, float cameraShake) =>
+            Play(ray.origin, EffectsExtensions.ToRotation(ray.direction), forceOrigin, forcePower, cameraShake);
 
         public void Play(Vector3 position, Quaternion rotation, Vector3 forceOrigin, float forcePower, float cameraShake)
         {
