@@ -28,6 +28,8 @@ namespace OmicronCombinedEffects
 
         public void Play(Vector3 position)
         {
+            transform.position = position;
+
             AudioClip clip = _clips[_random.Next(_clips.Count - 1)];
             _audioSource.clip = clip;
 

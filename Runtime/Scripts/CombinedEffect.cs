@@ -19,14 +19,31 @@ namespace OmicronCombinedEffects
         public void Play(Vector3 position) =>
             Play(position, Quaternion.identity, position, _defaultForcePower, _defaultCameraShake);
 
+        public void Play(Ray ray) => Play(ray.origin, ray.direction);
+
+        public void Play(Vector3 position, Vector3 direction) =>
+            Play(position, EffectsExtensions.ToRotation(direction));
+
         public void Play(Vector3 position, Quaternion rotation) =>
             Play(position, rotation, position, _defaultForcePower, _defaultCameraShake);
+
+        public void Play(Ray ray, Vector3 forceOrigin) =>
+            Play(ray.origin, EffectsExtensions.ToRotation(ray.direction), forceOrigin, _defaultForcePower, _defaultCameraShake);
+
+        public void Play(Vector3 position, Vector3 direction, Vector3 forceOrigin) =>
+            Play(position, EffectsExtensions.ToRotation(direction), forceOrigin, _defaultForcePower, _defaultCameraShake);
 
         public void Play(Vector3 position, Quaternion rotation, Vector3 forceOrigin) =>
             Play(position, rotation, forceOrigin, _defaultForcePower, _defaultCameraShake);
 
         public void Play(Vector3 position, Quaternion rotation, Vector3 forceOrigin, float forcePower) =>
             Play(position, rotation, forceOrigin, forcePower, _defaultCameraShake);
+
+        public void Play(Ray ray, Vector3 forceOrigin, float forcePower) =>
+            Play(ray.origin, EffectsExtensions.ToRotation(ray.direction), forceOrigin, forcePower, _defaultCameraShake);
+
+        public void Play(Vector3 position, Vector3 direction, Vector3 forceOrigin, float forcePower) =>
+            Play(position, EffectsExtensions.ToRotation(direction), forceOrigin, forcePower, _defaultCameraShake);
 
         public void Play(Vector3 position, Quaternion rotation, Vector3 forceOrigin, float forcePower, float cameraShake)
         {

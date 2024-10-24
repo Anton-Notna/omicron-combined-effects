@@ -34,7 +34,7 @@ namespace OmicronCombinedEffects
         public static void PlayFromPrefab(this ParticleEffect effect, Vector3 position, Quaternion rotation) =>
             ParticleEffects.Instance.PlayFromPrefab(effect, position, rotation);
 
-        private static Quaternion ToRotation(Vector3 forward)
+        public static Quaternion ToRotation(Vector3 forward)
         {
             if (forward == Vector3.zero)
                 return Quaternion.identity;
