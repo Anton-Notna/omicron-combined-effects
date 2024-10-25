@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UIElements;
-using static Codice.Client.Commands.WkTree.WorkspaceTreeNode;
 
 namespace OmicronCombinedEffects
 {
